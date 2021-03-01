@@ -1,0 +1,150 @@
+@import '../../Var.scss';
+
+.Footer {
+    font-family: $font-ubuntu;
+    font-weight: 300;
+    width: 100%;
+    position: fixed;
+    bottom: 15px;
+    z-index: 15;
+
+    ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0 45px;
+    }
+
+    > ul {
+        display: grid;
+        grid-template-columns: auto auto;
+        grid-template-rows: 1fr;
+        align-items: center;
+        justify-content: flex-start;
+
+        li {
+            position: relative;
+        }
+    }
+
+    .Copyright {
+        color: lighten($color-mirage, 30%);
+
+        &:after {
+            background: lighten($color-mirage, 30%);
+            content: '';
+            display: inline-block;
+            margin-left: 35px;
+            position: relative;
+            top: -5px;
+            left: 0;
+            width: 150px;
+            height: 2px;
+        }
+
+        @media only screen and (max-width: 768px) {
+            display: none;
+        }
+    }
+
+    .SocialMenu {
+        margin: 0 0 0 35px;
+        padding: 0;
+        position: relative;
+        top: 5px;
+
+        li {
+            display: inline-block;
+            font-size: 25px;
+            line-height: 1;
+            margin: 0 15px 0 0;
+
+            a {
+                background: rgba($color-mustard, 0);
+                border-radius: 50px;
+                color: lighten($color-mirage, 30%);
+                display: inline-block;
+                font-size: 16px;
+                font-weight: 300;
+                overflow: hidden;
+                position: relative;
+                width: 40px;
+                height: 40px;
+                transition: .5s ease;
+
+                span {
+                    position: absolute;
+                    top: 50%;
+                    left: 9px;
+                    transform: translateY(-50%);
+
+                    &.SocialIcon {
+                        font-size: 24px;
+                    }
+
+                    &.SocialName {
+                        left: 45px;
+                    }
+                }
+
+                &:before, &:after { display: none; }
+
+                &:hover,
+                &:focus {
+                    background: rgba($color-mustard, 1);
+                    color: $color-mirage;
+                    transition: .25s ease;
+
+                    &.Github {
+                        width: 110px;
+                    }
+
+                    &.Codepen {
+                        width: 125px;
+                    }
+
+                    &.Insta {
+                        width: 132px;
+                    }
+                }
+            }
+        }
+    }
+
+    @media only screen and (min-width: 1650px) {
+
+        .svg-inline--fa {
+            height: 1.25rem;
+        }
+
+        .Copyright {
+            font-size: 18px;
+        }
+    }
+
+    @media only screen and (max-width: 768px) {
+        display: none;
+    }
+}
+
+.LightMode {
+    .Footer {
+        .Copyright {
+            color: darken($color-white, 15%);
+            &:after { background: darken($color-white, 15%); }
+        }
+
+        .SocialMenu {
+            li {
+                a {
+                    background: rgba($color-malibu, 0);
+                    color: darken($color-white, 15%);
+                    &:hover,
+                    &:focus {
+                        background: rgba($color-malibu, 1);
+                        color: lighten($color-mirage, 20%);
+                    }
+                }
+            }
+        }
+    }
+}

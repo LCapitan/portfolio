@@ -1,0 +1,44 @@
+@import '../../Var.scss';
+
+.Portfolio {
+    justify-content: stretch;
+
+    .ProjectDetails {
+        display: inline-block;
+        margin: 15px 0 0;
+        position: relative;
+
+        p {
+            color: lighten($color-mirage, 30%);
+            padding: 0 0 10px;
+        }
+
+        .Button {
+            margin: 0;
+        }
+    }
+
+    h2 {
+        color: $color-white;
+        transition: .5s ease;
+    }
+
+    @media only screen and (max-width: 768px) {
+
+
+    }
+}
+
+.LightMode {
+    .Portfolio {
+        h2 {
+            color: lighten($color-mirage, 30%);
+            transition: .5s ease;
+        }
+
+        @media only screen and (max-width: 768px) {
+
+
+        }
+    }
+}

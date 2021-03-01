@@ -1,25 +1,45 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from 'react';
+import './App.scss';
+import { Provider, connect } from 'react-redux';
+import store from './store';
+import persistor from './store';
+import MainApp from './components/mainApp/MainApp';
+import { PersistGate } from 'redux-persist/integration/react';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+// Icons
+import { library } from '@fortawesome/fontawesome-svg-core';
+import {
+  faArrowRight,
+  faComment,
+  faUserCircle,
+  faAt,
+  faMoon,
+  faAdjust,
+  faFont
+} from '@fortawesome/free-solid-svg-icons';
+
+library.add(
+  faArrowRight,
+  faComment,
+  faUserCircle,
+  faAt,
+  faMoon,
+  faAdjust,
+  faFont
+);
+
+class App extends Component {
+  render() {
+    // console.log('run');
+
+    return (
+      <Provider store={store.store}>
+        <PersistGate loading={null} persistor={persistor.persistor}>
+          <MainApp/>
+        </PersistGate>
+      </Provider>
+    );
+  }
 }
 
 export default App;

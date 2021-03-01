@@ -1,0 +1,21 @@
+@import '../../Var.scss';
+
+.Logo {
+  fill: $color-white;
+  margin-bottom: -20px;
+  max-width: 75px;
+
+  @media only screen and (min-width: 1650px) {
+    max-width: 115px;
+  }
+
+  @media only screen and (max-width: 768px) {
+    display: none;
+  }
+}
+
+.LightMode {
+  .Logo {
+    fill: lighten($color-mirage, 20%);
+  }
+}

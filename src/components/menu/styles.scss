@@ -1,0 +1,519 @@
+@import '../../Var.scss';
+
+nav {
+    position: absolute;
+    border-radius: 70px 0 0 70px;
+    right: -55%;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 45%;
+    height: 97vh;
+    opacity: 1;
+    overflow: hidden;
+    transition: .5s ease;
+    z-index: 20;
+    box-shadow: -2px 6px 10px 0px rgba(0,0,0,0.5);
+
+
+    @media only screen and (max-width: 768px) {
+        position: fixed;
+        border-radius: 70px 70px 0 0;
+        width: 101%;
+        height: 100%;
+        top: auto;
+        bottom: -130%;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 40;
+        box-shadow: -2px 6px 10px 0px rgba(0,0,0,0)
+    }
+}
+
+.NavMenu {
+    background: $color-malibu;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 85vh 15vh;
+    align-items: center;
+    height: 100%;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+
+    @media only screen and (max-width: 768px) {
+        //align-items: space-around;
+    }
+
+    li {
+        font-family: $font-primary;
+        overflow: hidden;
+        position: relative;
+        text-align: center;
+    }
+
+    .FtLink {
+        &.Left {
+            position: absolute;
+            top: 50%;
+            left: 45px;
+            transform: rotate(-90deg);
+            transform-origin: center;
+            z-index: 15;
+        }
+
+        &.Right {
+            position: absolute;
+            top: 50%;
+            right: 45px;
+            transform: rotate(90deg);
+            transform-origin: center;
+            z-index: 15;
+        }
+
+        a {
+            color: darken($color-malibu, 30%);
+            font-family: $font-secondary;
+            font-size: 18px;
+            font-weight: 700;
+            padding: 5px 25px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+
+            &:before {
+                background: darken($color-malibu, 30%);
+                content: '';
+                display: block;
+                width: 0;
+                height: 2px;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                z-index: -1;
+            }
+
+            &:after {
+                background: $color-malibu;
+                content: '';
+                display: block;
+                width: 100%;
+                height: 10px;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                z-index: -1;
+            }
+
+            &:hover,
+            &:focus {
+                color: $color-mirage;
+
+                &:before {
+                    width: 200%;
+                }
+            }
+        }
+    }
+
+    @media only screen and (max-width: 768px) {
+        grid-template-rows: 75% 25%;
+        position: relative;
+    }
+}
+
+.MainMenu {
+    display: block;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+
+    li {
+        width: 100%;
+
+        a {
+            color: darken($color-malibu, 20%);
+            font-size: 85px;
+            font-weight: 700;
+            padding: 0 25px;
+            position: relative;
+
+            &:before {
+                background: darken($color-malibu, 20%);
+                border-radius: 100px;
+                content: '';
+                display: block;
+                width: 50%;
+                height: 47%;
+                position: absolute;
+                top: 60%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                z-index: -1;
+            }
+
+            &:after {
+                background: $color-malibu;
+                content: '';
+                display: block;
+                width: 95%;
+                height: 100%;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                z-index: -1;
+            }
+
+            &:hover,
+            &:focus {
+                color: lighten($color-mirage, 20%);
+                &:before {
+                    width: 250%;
+                }
+            }
+
+            @media only screen and (max-width: 768px) {
+                font-size: 65px;
+
+                &:hover,
+                &:focus {
+                    color: lighten($color-mirage, 20%);
+                    &:before {
+                        width: 150%;
+                    }
+                }
+            }
+        }
+    }
+
+    @media only screen and (max-width: 768px) {
+        margin: 55px 0 0;
+    }
+}
+
+.OptionsPanel {
+    color: $color-mirage;
+    justify-self: flex-start;
+    width: 100%;
+    height: 100%;
+
+    > span {
+        color: lighten($color-mirage, 20%);
+        font-size: 30px;
+        font-weight: 700;
+    }
+
+    ul {
+        //text-align: left !important;
+        margin: 0;
+        padding: 0;
+
+        li {
+            display: inline-block;
+        }
+    }
+}
+
+.MenuIsOpen {
+    right: 0;
+    transition: .25s ease;
+
+    @media only screen and (max-width: 768px) {
+        top: auto;
+        bottom: -10px;
+        transition: .25s ease;
+    }
+}
+
+.CloseMenu {
+    background: darken($color-malibu, 20%);
+    border: 0;
+    border-radius: 50%;
+    position: absolute;
+    left: 40px;
+    bottom: 40px;
+    width: 30px;
+    height: 30px;
+
+    &:before {
+        background: $color-malibu;
+        border-radius: 10px;
+        content: '';
+        display: block;
+        width: 20px;
+        height: 4px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) rotate(-45deg);
+    }
+
+    &:after {
+        background: $color-malibu;
+        border-radius: 10px;
+        content: '';
+        display: block;
+        width: 20px;
+        height: 4px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) rotate(45deg);
+    }
+
+    &:hover,
+    &:focus {
+        cursor: pointer;
+
+        &:before, &:after {
+            background: lighten($color-mirage, 25%);
+        }
+    }
+
+    @media only screen and (max-width: 768px) {
+
+        display: none;
+    }
+}
+
+.LightModeToggle {
+    background: lighten($color-mirage, 20%);
+    border-radius: 100px;
+    display: block;
+    width: 100px;
+    height: 60px;
+    transition: .5s ease;
+
+    &:before {
+        background: lighten($color-mirage, 10%);
+        border-radius: 50%;
+        content: '';
+        display: block;
+        position: absolute;
+        top: 58%;
+        right: 30px;
+        transform: translateY(-50%);
+        width: 20px;
+        height: 20px;
+        transition: .5s ease;
+    }
+
+    &:after {
+        background: lighten($color-mirage, 10%);
+        border-radius: 50%;
+        content: '';
+        display: block;
+        position: absolute;
+        top: 35%;
+        right: 20px;
+        transform: translateY(-50%);
+        width: 6px;
+        height: 6px;
+        transition: .5s ease;
+        z-index: 1;
+    }
+
+    .SunMoon {
+        &:before {
+            background: darken($color-white, 10%);
+            border: 4px solid darken($color-white, 35%);
+            border-radius: 50%;
+            content: '';
+            display: block;
+            position: absolute;
+            top: 50%;
+            left: 6px;
+            transform: translateY(-50%);
+            width: 40px;
+            height: 40px;
+            transition: .5s ease;
+            z-index: 2;
+        }
+
+        &:after {
+            background: darken($color-white, 35%);
+            border-radius: 50%;
+            content: '';
+            display: block;
+            position: absolute;
+            top: 70%;
+            left: 36px;
+            transform: translateY(-50%);
+            width: 10px;
+            height: 10px;
+            transition: .5s ease;
+            z-index: 2;
+        }
+
+        .Accents {
+            &:before {
+                background: darken($color-white, 10%);
+                border: 4px solid darken($color-white, 35%);
+                border-radius: 50%;
+                content: '';
+                display: block;
+                position: absolute;
+                top: 38%;
+                left: 27px;
+                transform: translateY(-50%);
+                width: 14px;
+                height: 14px;
+                transition: .5s ease;
+                z-index: 2;
+            }
+
+            &:after {
+                background: darken($color-white, 35%);
+                border-radius: 50%;
+                content: '';
+                display: block;
+                position: absolute;
+                top: 52%;
+                left: 17px;
+                transform: translateY(-50%);
+                width: 6px;
+                height: 6px;
+                transition: .5s ease;
+                z-index: 2;
+            }
+        }
+    }
+
+    &:hover,
+    &:focus {
+        cursor: pointer;
+    }
+}
+
+.LightMode {
+    nav { box-shadow: -2px 6px 10px 0px rgba(0,0,0,0.3); }
+    .NavMenu {
+        background: $color-mirage;
+
+        .FtLink {
+            a {
+                color: lighten($color-mirage, 25%);
+
+                &:before { background: lighten($color-mirage, 25%); }
+                &:after { background: $color-mirage; }
+                &:hover,
+                &:focus {
+                    color: $color-malibu;
+                    &:before { background: lighten($color-mirage, 25%); }
+                }
+            }
+        }
+    }
+
+    .CloseMenu {
+        background: lighten($color-mirage, 20%);
+        &:before, &:after {
+            background: $color-mirage;
+        }
+
+        &:hover, &:focus {
+            &:before, &:after {
+                background: $color-malibu;
+            }
+        }
+
+        @media only screen and (max-width: 768px) {
+            display: none;
+        }
+    }
+
+    .LightModeToggle {
+        background: darken($color-malibu, 20%);
+        border-radius: 100px;
+        display: block;
+        width: 100px;
+        height: 60px;
+        transition: .5s ease;
+
+        &:before, &:after {
+            display: none;
+        }
+
+        .SunMoon {
+            &:before {
+                background: lighten($color-mustard, 10%);
+                border: 4px solid darken($color-mustard, 20%);
+                border-radius: 50%;
+                content: '';
+                display: block;
+                position: absolute;
+                top: 50%;
+                left: 45px;
+                transform: translateY(-50%);
+                width: 40px;
+                height: 40px;
+                transition: .5s ease;
+            }
+
+            &:after {
+                background: $color-white;
+                border: 0;
+                border-radius: 50%;
+                content: '';
+                display: block;
+                position: absolute;
+                top: 58%;
+                left: 35px;
+                transform: translateY(-50%);
+                width: 14px;
+                height: 14px;
+                transition: .5s ease;
+            }
+
+            .Accents {
+                &:before {
+                    background: $color-white;
+                    border: 0;
+                    border-radius: 50%;
+                    content: '';
+                    display: block;
+                    position: absolute;
+                    top: 53%;
+                    left: 40px;
+                    transform: translateY(-50%);
+                    width: 22px;
+                    height: 22px;
+                    transition: .5s ease;
+                }
+
+                &:after {
+                    background: $color-white;
+                    border: 0;
+                    border-radius: 50%;
+                    content: '';
+                    display: block;
+                    position: absolute;
+                    top: 58%;
+                    left: 50px;
+                    transform: translateY(-50%);
+                    width: 16px;
+                    height: 16px;
+                    transition: .5s ease;
+                }
+            }
+        }
+    }
+
+    .MainMenu {
+        li {
+            a {
+                color: lighten($color-mirage, 25%);
+                &:before { background: lighten($color-mirage, 25%) }
+                &:after { background: $color-mirage }
+                &:hover,
+                &:focus { color: $color-malibu }
+            }
+        }
+    }
+}

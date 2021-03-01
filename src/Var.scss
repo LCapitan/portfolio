@@ -1,0 +1,47 @@
+// Colors
+$color-black: #000;
+$color-white: #fff;
+$color-mirage: #171626;
+$color-froly: #FF8291;
+$color-aquamarine: #69FAAC;
+$color-malibu: #92E6F8;
+$color-mustard: #FFDB4C;
+
+// Fonts
+@import url(https://fonts.googleapis.com/css?family=Raleway:300,400,700|Ubuntu:300,700);
+
+$font-ubuntu: 'Ubuntu', 'Healvetica', sans-serif;
+$font-raleway: 'Raleway', 'Helvetica', sans-serif;
+
+$font-primary: $font-ubuntu;
+$font-secondary: $font-raleway;
+
+// Mixins
+
+@mixin highlights($color) {
+    &::selection {
+        background: $color;
+    }
+}
+
+@mixin placeholder($color:$placeholder) {
+    ::-webkit-input-placeholder {
+        color: $color;
+    }
+
+    :-moz-placeholder {
+        color: $color;
+    }
+
+    ::-moz-placeholder {
+        color: $color;
+    }
+
+    :-ms-input-placeholder {
+        color: $color;
+    }
+}
+
+@mixin bounce {
+    animation: 45s changeHue infinite ease;
+}

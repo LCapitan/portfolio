@@ -1,0 +1,96 @@
+@import '../../Var.scss';
+
+.Proposal {
+    width: 100%;
+    display: grid;
+
+    &-Card {
+        background: lighten($color-mirage, 10%);
+        border-radius: 10px;
+        margin: 15px 0 0;
+        padding: 35px 15px 25px;
+        position: relative;
+
+        &-Header {
+            background: $color-mirage;
+            border-radius: 25px;
+            padding: 0 25px 10px;
+            position: absolute;
+            top: -15px;
+            text-align: center;
+            h2 {
+                color: $color-mustard;
+                line-height: 1;
+                margin: 0;
+                padding: 0;
+            }
+            span {
+                font-size: 14px;
+            }
+        }
+    }
+
+    &-Work {
+        font-size: 14px;
+
+        ul {
+            margin: 0;
+        }
+    }
+
+    &-Price {
+        background: $color-malibu;
+        border-radius: 25px;
+        color: $color-mirage;
+        padding: 0 25px;
+        position: absolute;
+        bottom: -15px;
+        right: 15px;
+    }
+
+    @media only screen and (max-width: 768px) {
+        display: block;
+
+        &-Card {
+            margin-bottom: 45px;
+
+            h2 {
+                font-size: 24px;
+            }
+        }
+
+        &-Price {
+            bottom: -18px;
+            right: 15px;
+            padding: 0px 25px;
+            h3 {
+                font-size: 24px;
+            }
+        }
+    }
+}
+
+.LightMode {
+    .Proposal {
+        &-Card {
+            background: lighten($color-malibu, 15%);
+
+            &-Header {
+                background: $color-white;
+                h2 {
+                    color: lighten($color-mirage, 25%);
+                }
+            }
+        }
+
+        &-Price {
+            background: lighten($color-mirage, 25%);
+            border-radius: 25px;
+            color: $color-white;
+            padding: 0 25px;
+            position: absolute;
+            bottom: -15px;
+            right: 15px;
+        }
+    }
+}

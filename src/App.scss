@@ -1,0 +1,823 @@
+@import './Var.scss';
+
+// General
+html, body {
+    background: $color-mirage;
+    font-family: $font-secondary;
+    font-size: 18px;
+    font-weight: 300;
+    line-height: 2;
+    margin: 0;
+    overflow-x: hidden;
+    padding: 0;
+    position: relative;
+    width: 100%;
+
+    @media only screen and (min-width: 1650px) {
+        font-size: 22px;
+    }
+
+    @media only screen and (max-width: 768px) {
+        //overflow-y: scroll;
+        font-size: 14px;
+    }
+}
+
+body {
+    color: $color-white;
+    transition: .25s ease;
+}
+
+main {
+    display: grid;
+    align-items: center;
+    height: 100vh;
+
+    @media only screen and (max-width: 768px) {
+        align-items: flex-start;
+    }
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    font-family: $font-primary;
+    font-size: 95px;
+    line-height: 1;
+    margin: 10px 0;
+
+    @media only screen and (min-width: 1650px) {
+        font-size: 135px;
+    }
+
+    @media only screen and (max-width: 768px) {
+        font-size: 55px;
+    }
+}
+
+p {
+    padding: 10px 0;
+    margin: 0;
+}
+
+a {
+    color: $color-white;
+    font-weight: 700;
+    outline: none;
+    position: relative;
+    z-index: 3;
+    text-decoration: none;
+    transition: .5s ease;
+
+    &:before {
+        background: $color-aquamarine;
+        content: '';
+        display: block;
+        width: 103%;
+        height: 4px;
+        position: absolute;
+        bottom: -3px;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: -1;
+        transition: .5s ease;
+    }
+
+    &:hover,
+    &:focus {
+        color: $color-mirage;
+        transition: .25s ease;
+
+        &:before {
+            height: 130%;
+            transition: .25s ease;
+        }
+    }
+
+    @media only screen and (max-width: 768px) {
+
+        color: $color-mirage;
+        transition: .25s ease;
+
+        &:before {
+            height: 130%;
+            transition: .25s ease;
+        }
+    }
+}
+
+p, em, strong, span, a, q, br,
+h1, h2, h3, h4, h5, h6, img {
+    @include highlights($color-mustard);
+}
+
+figure {
+    margin: 0;
+    padding: 0;
+}
+
+img {
+    position: relative;
+    width: 100%;
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+    border: 0;
+}
+
+// Buttons
+.Button {
+    color: lighten($color-mirage, 30%);
+    display: inline-block;
+    font-family: $font-primary;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 1;
+    margin: 25px 0;
+    padding: 11px 45px;
+    position: relative;
+    z-index: 3;
+    text-decoration: none;
+    transition: .5s ease;
+
+    &:before {
+        background: $color-mustard;
+        border-radius: 0;
+        content: '';
+        display: block;
+        width: 5px;
+        height: 100%;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        transform: translateX(0);
+        z-index: -1;
+        transition: .5s ease;
+    }
+
+    span {
+        color: lighten($color-mirage, 30%);
+        position: absolute;
+        top: 50%;
+        right: 10px;
+        transform: translateY(-50%);
+        transition: .5s ease;
+    }
+
+    &:hover,
+    &:focus {
+        color: $color-mirage;
+
+        &:before {
+            border-radius: 0 50px 50px 0;
+            height: 100%;
+            width: 105%;
+            transition: .25s ease;
+        }
+
+        span {
+            color: $color-mirage;
+        }
+    }
+
+    @media only screen and (min-width: 1650px) {
+        font-size: 22px;
+        padding: 14px 65px;
+    }
+
+    @media only screen and (max-width: 768px) {
+        color: $color-mirage;
+        display: block;
+        margin: 10px 0;
+        padding: 25px 45px;
+        text-align: center;
+
+        &:before {
+            border-radius: 50px;
+            height: 100%;
+            width: 100%;
+            transition: .25s ease;
+        }
+
+        span {
+            display: none;
+        }
+
+        &:hover {
+            &:before {
+                border-radius: 50px;
+                height: 100%;
+                width: 100%;
+            }
+        }
+
+
+    }
+}
+
+// Page Content
+.PageBg {
+    position: absolute;
+    top: 50%;
+    left: 40%;
+    transform: translateY(-50%);
+    width: 50vw;
+    z-index: -1;
+
+    img {
+        position: relative;
+        width: 100%;
+    }
+
+    svg {
+        fill: lighten($color-mirage, 20%);
+        position: relative;
+        width: 100%;
+    }
+
+    @media only screen and (max-width: 1024px) {
+        top: 75%;
+        left: 0;
+        transform: translateY(0);
+        width: 75vw;
+    }
+
+    @media only screen and (max-width: 768px) {
+        position: absolute;
+        top: 10%;
+        left: 40%;
+        transform: translate(-50%, -50%);
+        width: 225vw;
+
+        svg {
+            fill: lighten($color-mirage, 20%);
+        }
+    }
+}
+
+.SubHeader {
+    font-family: $font-primary;
+    font-size: 22px;
+    padding: 0 0 10px;
+
+    @media only screen and (min-width: 1650px) {
+        font-size: 28px;
+    }
+
+    @media only screen and (max-width: 768px) {
+        font-size: 14px;
+    }
+}
+
+.PageContent {
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: auto;
+    align-items: center;
+    justify-content: flex-start;
+    margin: 0 auto;
+    padding: 0;
+    width: 80%;
+    position: relative;
+    z-index: 10;
+
+    &.AlignStart {
+        align-items: flex-start;
+    }
+
+    .PageHeroImg {
+        position: absolute;
+        top: 55%;
+        right: 0;
+        transform: translateY(-50%);
+        width: 50%;
+
+        img {
+            display: block;
+            margin: 0 auto;
+            position: relative;
+            top: 0;
+            width: 100%;
+            height: auto;
+            animation: 2.5s ImgFloat ease infinite;
+        }
+
+        &.HomeShadow {
+            &:before {
+                background: rgba($color-black, .75);
+                border-radius: 50%;
+                content: '';
+                display: block;
+                position: absolute;
+                bottom: 20px;
+                left: 38%;
+                transform: translateX(-50%);
+                width: 45px;
+                height: 10px;
+                z-index: 5;
+                animation: 2.5s ShadowFloat ease infinite;
+            }
+
+            &:after {
+                background: rgba($color-black, .75);
+                border-radius: 50%;
+                content: '';
+                display: block;
+                position: absolute;
+                bottom: -20px;
+                left: 25%;
+                transform: translateX(-50%);
+                width: 125px;
+                height: 20px;
+                z-index: 5;
+                animation: 2.5s ShadowFloat ease infinite;
+            }
+
+            @media only screen and (max-width: 768px) {
+
+                &:before, &:after {
+                    display: none;
+                }
+            }
+        }
+
+        &.WorkShadow {
+            &:before {
+                background: rgba($color-black, .75);
+                border-radius: 50%;
+                content: '';
+                display: block;
+                position: absolute;
+                bottom: -20px;
+                left: 25%;
+                transform: translateX(-50%);
+                width: 45px;
+                height: 10px;
+                z-index: 5;
+                animation: 2.5s ShadowFloat ease infinite;
+            }
+
+            &:after {
+                background: rgba($color-black, .75);
+                border-radius: 50%;
+                content: '';
+                display: block;
+                position: absolute;
+                bottom: -20px;
+                left: 55%;
+                transform: translateX(-50%);
+                width: 125px;
+                height: 20px;
+                z-index: 5;
+                animation: 2.5s ShadowFloat ease infinite;
+            }
+
+            @media only screen and (max-width: 768px) {
+
+                &:before, &:after {
+                    display: none;
+                }
+            }
+        }
+
+        &.ContactShadow {
+
+            &:after {
+                background: rgba($color-black, .75);
+                border-radius: 50%;
+                content: '';
+                display: block;
+                position: absolute;
+                bottom: 0;
+                left: 40%;
+                transform: translateX(-50%);
+                width: 125px;
+                height: 20px;
+                z-index: 5;
+                animation: 2.5s ShadowFloat ease infinite;
+            }
+
+            @media only screen and (max-width: 768px) {
+                width: 85vw;
+                top: 3vh;
+
+                &:after {
+                    display: none;
+                }
+            }
+        }
+
+        @media only screen and (max-width: 1024px) {
+            position: absolute;
+            top: 100%;
+            right: 15%;
+            transform: translateY(0);
+            width: 65%;
+        }
+
+        @media only screen and (max-width: 768px) {
+            position: absolute;
+            top: 10vh;
+            left: 50%;
+            right: auto;
+            transform: translateX(-50%);
+            width: 65vw;
+        }
+    }
+
+    @media only screen and (max-width: 1024px) {
+        width: 80%;
+        position: absolute;
+        top: 10%;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    @media only screen and (max-width: 768px) {
+        top: 0;
+        padding: 300px 0 100px;
+        width: 85vw;
+
+        &.NoImg {
+            padding: 55px 0 100px;
+        }
+    }
+}
+
+.MobileImg {
+    position: absolute;
+
+    @media only screen and (max-width: 768px) {
+        position: absolute;
+        top: -75px;
+    }
+}
+
+.MobileHome {
+    display: none;
+
+    @media only screen and (max-width: 768px) {
+        display: block;
+    }
+}
+
+.MainContent {
+    &.PlusImg {
+        width: 35vw;
+
+        @media only screen and (max-width: 1024px) {
+            width: 80vw;
+        }
+
+        @media only screen and (max-width: 768px) {
+            width: 100%;
+        }
+    }
+
+    @media only screen and (max-width: 768px) {
+        //width: 100%;
+    }
+}
+
+q {
+    font-style: italic;
+    position: relative;
+}
+
+.Author {
+    text-align: right;
+}
+
+// Grid
+.App {
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 100vh;
+    align-items: center;
+    position: relative;
+    width: 100%;
+
+    @media only screen and (max-width: 768px) {
+        align-items: flex-start;
+        grid-template-rows: 100%;
+        overflow-y: scroll;
+    }
+}
+
+.TwoCol {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+    grid-gap: 25px;
+    align-items: center;
+
+    @media only screen and (max-width: 768px) {
+        grid-template-columns: auto;
+        grid-template-rows: auto auto;
+        grid-gap: 0;
+        align-items: flex-start;
+    }
+}
+
+.ThreeCol {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: auto;
+    grid-gap: 25px;
+}
+
+.GridCenter {
+    text-align: center;
+    justify-content: center;
+}
+
+.AlignTop {
+    align-items: flex-start;
+}
+
+ul.TwoCol,
+ul.ThreeCol {
+    list-style-type: none;
+    margin: 15px 0;
+    padding: 0;
+}
+
+.ContentWrapper {
+    overflow-x: hidden;
+    height: 100vh;
+
+    @media only screen and (max-width: 768px) {
+        overflow-y: scroll;
+    }
+}
+
+// Featured Links
+.FtLink {
+    &.Left {
+        position: absolute;
+        top: 50%;
+        left: 3vw;
+        transform: rotate(-90deg);
+        transform-origin: center;
+        z-index: 15;
+    }
+
+    &.Right {
+        position: absolute;
+        top: 50%;
+        right: 3vw;
+        transform: rotate(90deg);
+        transform-origin: center;
+        z-index: 15;
+    }
+
+    a {
+        color: lighten($color-mirage, 30%);
+        padding: 5px 25px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+
+        &:before {
+            background: lighten($color-mirage, 30%);
+            content: '';
+            display: block;
+            width: 45vh;
+            height: 2px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: -1;
+        }
+
+        &:after {
+            background: $color-mirage;
+            content: '';
+            display: block;
+            width: 100%;
+            height: 10px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: -1;
+        }
+
+        &:hover,
+        &:focus {
+            color: $color-mustard;
+
+            &:before {
+                background: $color-mustard;
+                width: 200%;
+            }
+        }
+    }
+
+    @media only screen and (max-width: 768px) {
+        display: none;
+    }
+}
+
+.App {
+    background-color: $color-mirage;
+}
+
+.LightMode {
+    background: $color-white;
+    background-size: cover;
+    color: lighten($color-mirage, 20%);
+    transition: .25s ease;
+
+    a {
+        color: $color-mirage;
+        &:before { background: $color-aquamarine }
+
+        @media only screen and (max-width: 768px) {
+            color: $color-mirage
+        }
+    }
+
+    .Button {
+        color: darken($color-white, 25%);
+        span { color: darken($color-white, 25%) }
+        &:before { background: $color-malibu }
+
+        &:hover,
+        &:focus {
+            color: lighten($color-mirage, 20%);
+            span { color: lighten($color-mirage, 20%) }
+        }
+
+        @media only screen and (max-width: 768px) {
+            color: $color-mirage;
+            span { color: $color-mirage }
+        }
+    }
+
+    .PageBg {
+        svg { fill: lighten($color-malibu, 15%) }
+    }
+
+    .PageHeroImg {
+        &.HomeShadow {
+            &:before, &:after {
+                background: rgba($color-black, .25);
+            }
+        }
+
+        &.WorkShadow {
+            &:before, &:after {
+                background: rgba($color-black, .25);
+            }
+        }
+
+        &.ContactShadow {
+            &:after {
+                background: rgba($color-black, .25);
+            }
+        }
+    }
+
+    .FtLink {
+        a {
+            color: darken($color-white, 15%);
+            &:before { background: darken($color-white, 15%) }
+            &:after { background: $color-white }
+
+            &:hover,
+            &:focus {
+                color: lighten($color-mirage, 20%);
+                &:before { background: lighten($color-mirage, 20%) }
+            }
+        }
+    }
+}
+
+.Mobile {
+    display: none;
+
+    @media only screen and (max-width: 768px) {
+        display: block;
+    }
+}
+
+.Page-entering {
+    animation: .3s PageEnter ease forwards;
+}
+
+.Page-entered {
+    opacity: 1;
+}
+
+.CareerContainer {
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: auto;
+    grid-gap: 25px;
+    align-items: stretch;
+    justify-content: space-between;
+    margin: 35px 0 0;
+
+    @media only screen and (max-width: 1024px) {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(2, auto);
+    }
+
+    .CareerCard {
+        background: lighten($color-mirage, 15%);
+        border-radius: 20px;
+        padding: 25px;
+        height: 450px;
+        position: relative;
+        overflow: hidden;
+
+        h3 {
+            font-size: 42px;
+            line-height: 1.25;
+        }
+
+        h4 {
+            background: $color-mustard;
+            border-radius: 5px;
+            color: lighten($color-mirage, 15%);
+            display: inline-block;
+            font-family: $font-primary;
+            font-size: 22px;
+            font-weight: 700;
+            line-height: 1;
+            margin: 15px 0 35px;
+            padding: 5px 10px;
+        }
+
+        span {
+            display: block;
+            text-align: right;
+            position: absolute;
+            right: 35px;
+            top: 375px;
+        }
+
+        ul {
+            position: absolute;
+            top: 425px;
+            left: 0;
+            background: lighten($color-mirage, 30%);
+            border-radius: 20px;
+            list-style-type: none;
+            margin: 0;
+            padding: 25px 15px 0 45px;
+            transition: .75s ease;
+            height: 450px;
+            box-shadow: 0px 4px 6px 0px rgba(0,0,0,0.75);
+
+            li {
+                &:first-child {
+                    color: $color-mirage;
+                    position: relative;
+                    top: -15px;
+                    font-size: 28px;
+                    font-family: $font-primary;
+                    font-weight: 700;
+                }
+            }
+        }
+
+        &:hover {
+            ul {
+                position: absolute;
+                top: 25px;
+                transition: .5s ease;
+            }
+        }
+    }
+}
+
+@keyframes PageEnter {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+@keyframes ImgFloat {
+    0% { top: 0; }
+    50% { top: -3vh; }
+    100% { top: 0; }
+}
+
+@keyframes ShadowFloat {
+    0% { transform: translateX(-50%) scale(1); }
+    50% { transform: translateX(-50%) scale(1.5); }
+    100% { transform: translateX(-50%) scale(1); }
+}
