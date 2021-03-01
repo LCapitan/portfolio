@@ -255,9 +255,21 @@ img {
     @media only screen and (max-width: 768px) {
         position: absolute;
         top: 10%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 150%;
+
+        svg {
+            fill: lighten($color-mirage, 20%);
+        }
+    }
+
+    @media only screen and (max-width: 565px) {
+        position: absolute;
+        top: 10%;
         left: 40%;
         transform: translate(-50%, -50%);
-        width: 225vw;
+        width: 225%;
 
         svg {
             fill: lighten($color-mirage, 20%);
@@ -427,6 +439,15 @@ img {
 
         @media only screen and (max-width: 768px) {
             position: absolute;
+            top: -150px;
+            left: 50%;
+            right: auto;
+            transform: translateX(-50%);
+            width: 65vw;
+        }
+
+        @media only screen and (max-width: 565px) {
+            position: absolute;
             top: 10vh;
             left: 50%;
             right: auto;
@@ -444,9 +465,21 @@ img {
     }
 
     @media only screen and (max-width: 768px) {
-        top: 0;
         padding: 300px 0 100px;
         width: 85vw;
+        top: auto;
+        bottom: 0;
+
+        &.NoImg {
+            padding: 55px 0 100px;
+        }
+    }
+
+    @media only screen and (max-width: 565px) {
+        padding: 300px 0 100px;
+        width: 85vw;
+        top: 10%;
+        bottom: auto;
 
         &.NoImg {
             padding: 55px 0 100px;

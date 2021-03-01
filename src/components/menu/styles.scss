@@ -389,6 +389,12 @@ nav {
     &:focus {
         cursor: pointer;
     }
+
+    @media only screen and (max-width: 768px) {
+        position: relative;
+        top: 19px;
+        left: 11px;
+    }
 }
 
 .LightMode {
