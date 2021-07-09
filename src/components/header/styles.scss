@@ -95,9 +95,9 @@
     }
 
     @media only screen and (max-width: 768px) {
+        position: absolute;
         border-radius: 50px;
-        top: auto;
-        bottom: 15px;
+        top: 90%;
         left: auto;
         right: 25px;
         width: 75px;
@@ -116,7 +116,6 @@
         }
     }
 }
-
 .MenuButton {
     background: none;
     border: 0;

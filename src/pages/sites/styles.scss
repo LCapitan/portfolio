@@ -24,8 +24,12 @@
     }
 
     @media only screen and (max-width: 768px) {
-
-
+        .ProjectDetails {
+            margin-bottom: 45px;
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
     }
 }
 
